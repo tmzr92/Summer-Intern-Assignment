@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - B.planet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f4f2;
+            color: #555;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .header button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .header button:hover {
+            background-color: #eee;
+        }
+        .login-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-image {
+            width: 45%;
+        }
+        .login-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .login-form {
+            width: 50%;
+            padding: 20px;
+        }
+        .login-form h2 {
+            font-size: 22px;
+            color: #556b2f;
+        }
+        .login-form p {
+            font-size: 16px;
+            color: #555;
+        }
+        .login-form input, .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-form input:focus {
+            outline: none;
+            border-color: #556b2f;
+        }
+        .login-form button {
+            background-color: #e7dfd6;
+            color: #555;
+            cursor: pointer;
+            border: none;
+        }
+        .login-form button:hover {
+            background-color: #d6cec5;
+        }
+        .login-form .forgot-password, .login-form .signup-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .login-form .forgot-password a, .login-form .signup-link a {
+            color: #555;
+            text-decoration: none;
+        }
+        .login-form .forgot-password a:hover, .login-form .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>B.planet</h1>
+            <button onclick="window.location.href='contact.html'">Contact us</button>
+        </div>
+        <div class="login-container">
+            <div class="login-image">
+                <img src="Login in page image.png" alt="Plant Image">
+            </div>
+            <div class="login-form">
+                <h2>Login</h2>
+                <p>Welcome back !!</p>
+                <input type="email" placeholder="Email" id="email">
+                <input type="password" placeholder="Password" id="password">
+                <div class="forgot-password">
+                    <a href="#">Forgot Password ?</a>
+                </div>
+                <button type="button" onclick="login()">Login</button>
+                <div class="signup-link">
+                    <p>Don't have an account yet ?</p>
+                    <a href="#">Sign up for free</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            if(email && password) {
+                // Redirect to home page
+                window.location.href = 'home.htm';
+            } else {
+                alert('Please fill in both fields');
+            }
+        }
+    </script>
+</body>
+</html>

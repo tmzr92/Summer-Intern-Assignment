@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f4f2;
+            color: #555;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .contact-button {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            padding: 10px 20px;
+            border: 2px solid #555;
+            background-color: transparent;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            cursor: pointer;
+        }
+        .contact-button a{
+            text-decoration: none;
+            color: #555;
+            font-size: 15px;
+        }
+        .profile-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .profile-card img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .profile-card .field {
+            margin: 10px 0;
+        }
+        .profile-card .field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .profile-card .field input {
+            width: calc(100% - 12px);
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #f1e9dd;
+        }
+        .profile-card .field input[readonly] {
+            background-color: #f1e9dd;
+            cursor: not-allowed;
+        }
+        .profile-card .field-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .profile-card .field-group .half-width {
+            width: calc(50% - 6px);
+        }
+        .profile-card .edit {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .profile-card .edit a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .profile-card .edit a:hover {
+            text-decoration: underline;
+        }
+        .save-button {
+            display: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: 2px solid #555;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>B.planet</h1>
+            <button class="contact-button">
+                <a href="contact.htm">
+                    Contact us
+                </a>
+            </button>
+        </div>
+        <div class="profile-card">
+            <img src="img_avtar.avif" alt="Profile Image">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" value="Rahul Kumar" readonly>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="rahulkumar@gmail.com" readonly>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="****************" readonly>
+            </div>
+            <div class="field">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" value="9598755687" readonly>
+            </div>
+            <div class="field">
+                <label for="address">Address</label>
+                <input type="text" id="address" value="Patia, Bhubaneswar" readonly>
+            </div>
+            <div class="field-group">
+                <div class="field half-width">
+                    <label for="state">State</label>
+                    <input type="text" id="state" value="Odisha" readonly>
+                </div>
+                <div class="field half-width">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" value="751024" readonly>
+                </div>
+            </div>
+            <div class="edit">
+                <a href="#" id="edit-link">Edit</a>
+            </div>
+            <button class="save-button" id="save-button">Save</button>
+        </div>
+    </div>
+
+    <script>
+        const editLink = document.getElementById('edit-link');
+        const saveButton = document.getElementById('save-button');
+        const inputs = document.querySelectorAll('.profile-card input');
+
+        editLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            inputs.forEach(input => input.removeAttribute('readonly'));
+            inputs.forEach(input => input.style.backgroundColor = '#fff');
+            saveButton.style.display = 'inline-block';
+            editLink.style.display = 'none';
+        });
+
+        saveButton.addEventListener('click', function() {
+            inputs.forEach(input => input.setAttribute('readonly', true));
+            inputs.forEach(input => input.style.backgroundColor = '#f1e9dd');
+            saveButton.style.display = 'none';
+            editLink.style.display = 'inline';
+        });
+    </script>
+</body>
+</html>
